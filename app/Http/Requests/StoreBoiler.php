@@ -24,7 +24,7 @@ class StoreBoiler extends FormRequest
     public function rules()
     {
         return [
-            //
+            'serialNumber' => 'required|string|max:20',
         ];
     }
 }
