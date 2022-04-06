@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Technician extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'login',
+        'password'
+    ];
 }

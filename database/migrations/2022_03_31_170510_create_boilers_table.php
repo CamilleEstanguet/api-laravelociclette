@@ -17,8 +17,8 @@ class CreateBoilersTable extends Migration
             $table->id();
             $table->unsignedBigInteger('customId');
             $table->foreign('customId')->references('id')->on('customers')->onUpdate('cascade')->onDelete('cascade');
-            $table->string('marque');
-            $table->string('modele');
+            $table->string('brand');
+            $table->string('model');
             $table->string('serialNumber')->unique();
             $table->timestamps();
         });

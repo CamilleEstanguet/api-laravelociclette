@@ -10,10 +10,9 @@ class Boiler extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name',
-        'firstName',
-        'address',
-        'phoneNumber'
+        'brand',
+        'model',
+        'serialNumber'
     ];
 
     public function customer()
