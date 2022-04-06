@@ -15,6 +15,11 @@ class CreateBoilersTable extends Migration
     {
         Schema::create('boilers', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('customId');
+            $table->foreign('customId')->references('id')->on('customers')->onUpdate('cascade')->onDelete('cascade');
+            $table->string('marque');
+            $table->string('modele');
+            $table->string('serialNumber')->unique();
             $table->timestamps();
         });
     }

@@ -15,6 +15,14 @@ class CreateCallOutsTable extends Migration
     {
         Schema::create('call_outs', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('techId');
+            $table->foreign('techId')->references('id')->on('technicians')->onUpdate('cascade')->onDelete('cascade');
+            $table->unsignedBigInteger('boilerId');
+            $table->foreign('boilerId')->references('id')->on('boilers')->onUpdate('cascade')->onDelete('cascade');
+            $table->string('title');
+            $table->string('description');
+            $table->integer('duration');
+            $table->date('date');
             $table->timestamps();
         });
     }
