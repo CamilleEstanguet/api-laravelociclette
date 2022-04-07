@@ -24,7 +24,10 @@ class StoreCallOut extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => 'required|string|max:20',
+            'description' => 'required|string|min:10',
+            'duration' => 'required|numeric',
+            'date' => 'required'
         ];
     }
 }

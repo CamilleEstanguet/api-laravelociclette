@@ -24,7 +24,10 @@ class StoreCustomer extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|string',
+            'fistName' => 'required|string',
+            'address' => 'required|string',
+            'phoneNumber' => 'required|string'
         ];
     }
 }

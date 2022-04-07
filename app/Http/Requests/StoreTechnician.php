@@ -24,7 +24,8 @@ class StoreTechnician extends FormRequest
     public function rules()
     {
         return [
-            //
+            'login' => 'required|string',
+            'password' => 'required|string|hidden'
         ];
     }
 }
