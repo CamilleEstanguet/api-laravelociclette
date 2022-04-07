@@ -25,7 +25,7 @@ class StoreCustomer extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'fistName' => 'required|string',
+            'firstName' => 'required|string',
             'address' => 'required|string',
             'phoneNumber' => 'required|string'
         ];
