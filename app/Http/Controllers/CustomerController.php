@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Customer;
 use Illuminate\Http\Request;
+use App\Http\Resources\CustomerResource;
+use App\Http\Requests\StoreCustomer;
 
 class CustomerController extends Controller
 {
@@ -23,7 +25,7 @@ class CustomerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreCustomer $request)
     {
         $validated = $request->validated();
         Customer::create($validated);
@@ -49,7 +51,8 @@ class CustomerController extends Controller
      */
     public function update(Request $request, Customer $customer)
     {
-        //
+        $validated = $request->validated();
+        $customer->update($request->all());
     }
 
     /**
@@ -60,6 +63,6 @@ class CustomerController extends Controller
      */
     public function destroy(Customer $customer)
     {
-        //
+        Customer::destroy($customer);
     }
 }

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Boiler;
 use Illuminate\Http\Request;
+use App\Http\Resources\BoilerResource;
+use App\Http\Requests\StoreBoiler;
 
 class BoilerController extends Controller
 {
@@ -23,10 +25,11 @@ class BoilerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreBoiler $request)
     {
         $validated = $request->validated();
         Boiler::create($validated);
+        
     }
 
     /**
@@ -49,7 +52,8 @@ class BoilerController extends Controller
      */
     public function update(Request $request, Boiler $boiler)
     {
-        //
+        $validated = $request->validated();
+        $boiler->update($request->all());
     }
 
     /**
@@ -60,6 +64,6 @@ class BoilerController extends Controller
      */
     public function destroy(Boiler $boiler)
     {
-        Boiler::create($boiler);
+        Boiler::destroy($boiler);
     }
 }

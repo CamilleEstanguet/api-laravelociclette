@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\CallOut;
 use Illuminate\Http\Request;
+use App\Http\Resources\CallOutResource;
+use App\Http\Requests\StoreCallOut;
 
 class CallOutController extends Controller
 {
@@ -23,7 +25,7 @@ class CallOutController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreCallOut $request)
     {
         $validated = $request->validated();
         CallOut::create($validated);
@@ -49,7 +51,8 @@ class CallOutController extends Controller
      */
     public function update(Request $request, CallOut $callOut)
     {
-        //
+        $validated = $request->validated();
+        $callOut->update($request->all());
     }
 
     /**
@@ -60,6 +63,6 @@ class CallOutController extends Controller
      */
     public function destroy(CallOut $callOut)
     {
-        //
+        CallOut::destroy($callOut);
     }
 }

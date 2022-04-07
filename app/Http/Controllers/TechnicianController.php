@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Technician;
 use Illuminate\Http\Request;
+use App\Http\Resources\TechnicianResource;
+use App\Http\Requests\StoreTechnician;
 
 class TechnicianController extends Controller
 {
@@ -14,7 +16,7 @@ class TechnicianController extends Controller
      */
     public function index()
     {
-        //
+        return TechnicianResource::collection(Technician::paginate());
     }
 
     /**
@@ -23,9 +25,10 @@ class TechnicianController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreTechnician $request)
     {
-        //
+        $validated = $request->validated();
+        Technician::create($validated);
     }
 
     /**
@@ -36,7 +39,7 @@ class TechnicianController extends Controller
      */
     public function show(Technician $technician)
     {
-        //
+        return new TechnicianResource($technician);
     }
 
     /**
@@ -48,7 +51,8 @@ class TechnicianController extends Controller
      */
     public function update(Request $request, Technician $technician)
     {
-        //
+        $validated = $request->validated();
+        $technician->update($request->all());
     }
 
     /**
@@ -59,6 +63,6 @@ class TechnicianController extends Controller
      */
     public function destroy(Technician $technician)
     {
-        //
+        Technician::destroy($technician);
     }
 }
