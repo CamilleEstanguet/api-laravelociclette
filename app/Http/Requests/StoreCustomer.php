@@ -27,7 +27,7 @@ class StoreCustomer extends FormRequest
             'name' => 'required|string',
             'firstName' => 'required|string',
             'address' => 'required|string',
-            'phoneNumber' => 'required|string'
+            'phoneNumber' => 'required|string|length:10'
         ];
     }
 }

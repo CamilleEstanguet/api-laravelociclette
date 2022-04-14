@@ -16,6 +16,8 @@ class CreateTechniciansTable extends Migration
         Schema::create('technicians', function (Blueprint $table) {
             $table->id();
             $table->string('login');
+            $table->string('name');
+            $table->string('firstName');
             $table->string('password');
             $table->timestamps();
         });

@@ -14,10 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::apiResource('boiler', App\Http\Controllers\BoilerController::class);
-Route::apiResource('customer', App\Http\Controllers\CustomerController::class);
-Route::apiResource('technician', App\Http\Controllers\TechnicianController::class);
-Route::apiResource('callout', App\Http\Controllers\CallOutController::class);
+Route::apiResource('boilers', App\Http\Controllers\BoilerController::class);
+Route::apiResource('customers', App\Http\Controllers\CustomerController::class);
+Route::apiResource('technicians', App\Http\Controllers\TechnicianController::class);
+Route::apiResource('callouts', App\Http\Controllers\CallOutController::class);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
